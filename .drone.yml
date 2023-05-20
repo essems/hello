@@ -3,14 +3,15 @@ type: docker
 name: default
 
 steps:
-# - name: test
-#   image: busybox
-#   commands:
-#   - echo $(date -u +"%s")
+- name: tags
+  image: busybox
+  commands:
+  - echo "${DRONE_BRANCH/\//-}-$(date +'%s')-${DRONE_COMMIT_SHA:0:8}" > .tags
+
 - name: build
   image: plugins/docker
   settings:
     repo: essems/hello
     dockerfile: Dockerfile
-    tags:
-    - ${DRONE_BRANCH/\//-}-$(date -u +"%s")-${DRONE_COMMIT_SHA:0:8}
+    # tags:
+    # - ${DRONE_BRANCH/\//-}-$(date +'%s')-${DRONE_COMMIT_SHA:0:8}

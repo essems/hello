@@ -7,11 +7,14 @@ steps:
   image: busybox
   commands:
   - echo "${DRONE_BRANCH/\//-}-$(date +'%s')-${DRONE_COMMIT_SHA:0:8}" > .tags
+  - cat .tags
 
 - name: build
   image: plugins/docker
   settings:
     repo: essems/hello
+    username: essems@gmail.com
+    password: Tjsals@98
     dockerfile: Dockerfile
     # tags:
     # - ${DRONE_BRANCH/\//-}-$(date +'%s')-${DRONE_COMMIT_SHA:0:8}

@@ -13,8 +13,8 @@ steps:
   image: plugins/docker
   settings:
     repo: essems/hello
-    username: "essems@gmail.com"
-    password: "Tjsals@98"
+    username: "essems"
+    password: "dckr_pat_MGw8aQ_wvIltUxJnbnOlrD81soI"
     dockerfile: Dockerfile
     # tags:
     # - ${DRONE_BRANCH/\//-}-$(date +'%s')-${DRONE_COMMIT_SHA:0:8}
